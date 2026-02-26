@@ -4181,6 +4181,7 @@ function remodeArrays() {
 			"VENIPEDE": 1,
 			"WHIRLIPEDE": 4,
 			"SCOLIPEDE": 3,
+			"SCOLIPEDE_1": 3,
 			"SCATTERBUG": 1,
 			"SPEWPA": 4,
 			"VIVILLON": 3,
@@ -4351,6 +4352,8 @@ let starterLayout = [
 		"CHIKORITA",
 		"BAYLEEF",
 		"MEGANIUM",
+		// ZA backadd
+		["MEGANIUM_1", 4],
 		"CYNDAQUIL",
 		"QUILAVA",
 		"TYPHLOSION",
@@ -4359,6 +4362,7 @@ let starterLayout = [
 		"TOTODILE",
 		"CROCONAW",
 		"FERALIGATR",
+		["FERALIGATR_1", 4],
 		// Ranger backadd
 		["PICHU_2", 4],
 		// Colo backadd
@@ -4421,12 +4425,15 @@ let starterLayout = [
 		["CHIKORITA", 4],
 		["BAYLEEF", 4],
 		["MEGANIUM", 4],
+		["MEGANIUM_1", 4],
 		["CYNDAQUIL", 4],
 		["QUILAVA", 4],
 		["TYPHLOSION", 4],
+		["TYPHLOSION_1", 4],
 		["TOTODILE", 4],
 		["CROCONAW", 4],
-		["FERALIGATR", 4]
+		["FERALIGATR", 4],
+		["FERALIGATR_1", 4]
 	],
 	[
 		"SNIVY",
@@ -4435,6 +4442,8 @@ let starterLayout = [
 		"TEPIG",
 		"PIGNITE",
 		"EMBOAR",
+		// ZA backadd
+		["EMBOAR_1", 4],
 		"OSHAWOTT",
 		"DEWOTT",
 		"SAMUROTT",
