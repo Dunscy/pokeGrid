@@ -2651,6 +2651,8 @@ var arrays = {
 		"PIKACHU",
 		"RAICHU",
 		"RAICHU_1",
+		"RAICHU_2",
+		"RAICHU_3",
 		"PIKACHU_70",
 		"PLUSLE",
 		"MINUN",
