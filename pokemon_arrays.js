@@ -3241,10 +3241,6 @@ var arrays = {
 		  "DRAGONITE_1",
 		  "MEWTWO_1",
 		  "MEWTWO_2",
-		  "CLEFABLE_1",
-		  "VICTREEBEL_1",
-		  "STARMIE_1",
-		  "DRAGONITE_1",
 		  "VENUSAUR_2",
 		  "CHARIZARD_3",
 		  "BLASTOISE_2",
@@ -3309,7 +3305,7 @@ var arrays = {
 		  "GALLADE_1",
 		  "FROSLASS_1",
 		  "HEATRAN_1",
-		  "DARKRAI_1",
+		  "DARKRAI_2",
 		  "DIALGA_2"
 		],
 		[
