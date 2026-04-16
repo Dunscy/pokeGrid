@@ -15,9 +15,7 @@ var arrays = {
 		  "VICTREEBEL",
 		  "EXEGGCUTE",
 		  "EXEGGUTOR",
-		  "TANGELA"
-		],
-		[
+		  "TANGELA",
 		  "CHIKORITA",
 		  "BAYLEEF",
 		  "MEGANIUM",
@@ -27,9 +25,7 @@ var arrays = {
 		  "JUMPLUFF",
 		  "SUNKERN",
 		  "SUNFLORA",
-		  "CELEBI"
-		],
-		[
+		  "CELEBI",
 		  "TREECKO",
 		  "GROVYLE",
 		  "SCEPTILE",
@@ -46,9 +42,7 @@ var arrays = {
 		  "CACTURNE",
 		  "LILEEP",
 		  "CRADILY",
-		  "TROPIUS"
-		],
-		[
+		  "TROPIUS",
 		  "TURTWIG",
 		  "GROTLE",
 		  "TORTERRA",
@@ -65,9 +59,7 @@ var arrays = {
 		  "LEAFEON",
 		  "ROTOM_5",
 		  "SHAYMIN",
-		  "SHAYMIN_1"
-		],
-		[
+		  "SHAYMIN_1",
 		  "SNIVY",
 		  "SERVINE",
 		  "SERPERIOR",
@@ -94,9 +86,7 @@ var arrays = {
 		  "FERROSEED",
 		  "FERROTHORN",
 		  "VIRIZION",
-		  "BLACKDOOR"
-		],
-		[
+		  "BLACKDOOR",
 		  "CHESPIN",
 		  "QUILLADIN",
 		  "CHESNAUGHT",
@@ -108,9 +98,7 @@ var arrays = {
 		  "GOURGEIST",
 		  "VENUSAUR_1",
 		  "SCEPTILE_1",
-		  "ABOMASNOW_1"
-		],
-		[
+		  "ABOMASNOW_1",
 		  "ROWLET",
 		  "DARTRIX",
 		  "DECIDUEYE",
@@ -124,9 +112,7 @@ var arrays = {
 		  "DHELMISE",
 		  "TAPUBULU",
 		  "KARTANA",
-		  "EXEGGUTOR_1"
-		],
-		[
+		  "EXEGGUTOR_1",
 		  "GROOKEY",
 		  "THWACKEY",
 		  "RILLABOOM",
@@ -144,9 +130,7 @@ var arrays = {
 		  "ELECTRODE_1",
 		  "LILLIGANT_1",
 		  "DECIDUEYE_1",
-		  "VENUSAUR_2"
-		],
-		[
+		  "VENUSAUR_2",
 		  "SPRIGATITO",
 		  "FLORAGATO",
 		  "MEOWSCARADA",
@@ -179,7 +163,15 @@ var arrays = {
 		  "VICTREEBEL_1",
 		  "MEGANIUM_1",
 		  "CHESNAUGHT_1"
-		]
+		],
+		["REGASUNDE", "FUNGLOW", "TOFAGRIF", "TOFAGRIF_1"],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[]
 	  ],
 	  "Poison": [
 		[],
