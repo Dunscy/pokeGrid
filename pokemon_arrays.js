@@ -303,9 +303,6 @@ var arrays = {
 			"EVERSHEEN",
 			"TOFAGRIF_1",
 		],
-		[],
-		[],
-		[]
 	  ],
 	  "Poison": [
 		[],
