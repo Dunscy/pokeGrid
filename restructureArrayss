@@ -1,0 +1,66 @@
+import re
+
+def find_matching_bracket(text, start):
+    depth = 0
+    for i in range(start, len(text)):
+        if text[i] == '[':
+            depth += 1
+        elif text[i] == ']':
+            depth -= 1
+            if depth == 0:
+                return i
+    return -1
+
+
+def parse_js_array_block(block):
+    # very simple JS array parser (strings only)
+    items = re.findall(r'"([^"]+)"', block)
+    return items
+
+
+def process_file(input_path, output_path):
+    with open(input_path, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    pattern = r'"?(\w+)"?\s*:\s*\['
+    matches = list(re.finditer(pattern, text))
+
+    output = text
+
+    offset = 0
+
+    for match in matches:
+        name = match.group(1)
+        start = match.end() - 1
+
+        end = find_matching_bracket(text, start)
+        if end == -1:
+            continue
+
+        block = text[start:end+1]
+
+        items = parse_js_array_block(block)
+
+        # build new structure (10 slots like your example)
+        def format_array(arr):
+            return "[\n" + ",\n".join(f'  "{x}"' for x in arr) + "\n]"
+
+
+        new_structure = ["[]" for _ in range(10)]
+        new_structure[1] = format_array(items)
+
+        replacement = f'"{name}": [\n  [],\n  {new_structure[1]},\n  [],\n  [],\n  [],\n  [],\n  [],\n  [],\n  [],\n  []\n]'
+
+        # replace in output safely using offsets
+        real_start = match.start() + offset
+        real_end = end + offset + 1
+
+        output = output[:real_start] + replacement + output[real_end:]
+
+        offset += len(replacement) - (real_end - real_start)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(output)
+
+
+process_file("pokemon_arrays.js", "output.js")
