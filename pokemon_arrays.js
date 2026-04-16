@@ -4442,7 +4442,7 @@ var arrays = {
   "JUNGORE",
   "MAJUNGOLD",
   "OTHOCKET",
-  "OCKTHANE",
+  "SATUROCERAS",
   "PIXSILT",
   "SILRETRO"
 ],
@@ -5102,7 +5102,9 @@ var arrays = {
     "OCKTHANE",
     "NIANDERTROLL",
     "VARKACOSM",
-    "BRASKEPTIC"
+    "BRASKEPTIC",
+    "TENKIBO",
+    "TENKIBOMAGICALHERO"
   ],
 ],
 	  "Gimmick": [

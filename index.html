@@ -805,12 +805,34 @@ canvas {
 			left_corner = zerogen_coords[Math.min(35, type)][0] + 100
 			top_corner = zerogen_coords[Math.min(35, type)][1] + 100
 		}
-		var rightp = left_corner + Math.max(100, 100*max_cols);
-		var botp = top_corner + Math.max(99, 99*row_numbers.length);
-		if(rightp > 2276)
-			left_corner -= (rightp-2276)
-		if(botp > 1271)
-			top_corner -= (99*(row_numbers.length+1))
+		
+		const bubbleWidth = Math.max(99, max_cols * 99);
+		const bubbleHeight = Math.max(99, row_numbers.length * 99);
+
+		// use actual viewport instead of hardcoded values
+		const screenWidth = window.innerWidth;
+		const screenHeight = window.innerHeight;
+
+		// RIGHT overflow
+		if (left_corner + bubbleWidth > screenWidth) {
+			left_corner = screenWidth - bubbleWidth - 10; // padding
+		}
+
+		// LEFT overflow
+		if (left_corner < 0) {
+			left_corner = 10;
+		}
+
+		// BOTTOM overflow
+		if (top_corner + bubbleHeight > screenHeight) {
+			top_corner = top_corner - bubbleHeight - 99; // open above box
+		}
+
+		// TOP overflow
+		if (top_corner < 0) {
+			top_corner = 10;
+		}
+
 		// current index of currently_previewing
 		var pr_ind = 0;
 		for(var r=0; r<row_numbers.length; r++) {
