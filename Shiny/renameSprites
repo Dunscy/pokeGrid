@@ -1,0 +1,73 @@
+import os
+from PIL import Image
+
+IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff', '.webp'}
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def process_filename(filename):
+    name, ext = os.path.splitext(filename)
+
+    if ext.lower() not in IMAGE_EXTENSIONS:
+        return None, None
+
+    # Handle mega -> _1
+    if name.lower().endswith("mega"):
+        name = name[:-4] + "_1"
+
+    new_name = name.upper()
+    new_ext = ext
+
+    # Convert GIF -> PNG
+    if ext.lower() == ".gif":
+        new_ext = ".png"
+
+    new_filename = new_name + new_ext
+
+    if new_filename == filename:
+        return None, None
+
+    return new_filename, new_ext
+
+
+def convert_image(src_path, dst_path, ext):
+    # Only handling GIF conversion explicitly
+    if ext == ".png":
+        return
+
+    if ext == ".png" and src_path.lower().endswith(".gif"):
+        with Image.open(src_path) as im:
+            im.convert("RGBA").save(dst_path, "PNG")
+
+
+def main():
+    for filename in os.listdir(SCRIPT_DIR):
+        src_path = os.path.join(SCRIPT_DIR, filename)
+
+        if not os.path.isfile(src_path):
+            continue
+
+        new_filename, new_ext = process_filename(filename)
+
+        if not new_filename:
+            continue
+
+        dst_path = os.path.join(SCRIPT_DIR, new_filename)
+
+        if os.path.exists(dst_path):
+            print(f"Skipping (exists): {new_filename}")
+            continue
+
+        # Handle GIF → PNG conversion
+        if filename.lower().endswith(".gif"):
+            with Image.open(src_path) as im:
+                im.convert("RGBA").save(dst_path, "PNG")
+            os.remove(src_path)
+            print(f"Converted + Renamed: {filename} -> {new_filename}")
+        else:
+            os.rename(src_path, dst_path)
+            print(f"Renamed: {filename} -> {new_filename}")
+
+
+if __name__ == "__main__":
+    main()
