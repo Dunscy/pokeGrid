@@ -73,12 +73,12 @@ canvas {
   height: 50px;
 }
 #import {
-  top: 1640px;
+  top: 1333px;
   position: absolute;
   z-index: 4;
 }
 #credits {
-	top: 1610px;
+	top: 1313px;
 	left: 600px;
 	width: 600px;
 	position: absolute;
@@ -270,34 +270,34 @@ canvas {
 	left: 292px;
 }
 .bottom-box-1 {
-	left: 521px;
+	left: 530px;
 }
 .bottom-box-2 {
-	left: 703px;
+	left: 722px;
 }
 .bottom-box-3 {
-	left: 885px;
+	left: 914px;
 }
 .bottom-box-4 {
-	left: 1065px;
+	left: 1106px;
 }
 .bottom-box-5 {
-	left: 1248px;
+	left: 1298px;
 }
 .bottom-box-6 {
-	left: 1430px;
+	left: 1490px;
 }
 .bottom-box-7 {
-	left: 1612px;
+	left: 1682px;
 }
 .bottom-box-8 {
-	left: 1794px;
+	left: 1874px;
 }
 .bottom-box-9 {
-	left: 1976px;
+	left: 2066px;
 }
 .bottom-box-10 {
-	left: 2158px;
+	left: 2202px;
 }
 .bottom-box-1-label {
 	left: 469px;
@@ -988,10 +988,6 @@ canvas {
 			}
 			var ents = lines[l].split(",");
 			var spinda_spots = false;
-			if(ents[0] && ents[0] == "spindaspots") {
-				randomSpinda(ents);
-				continue;
-			}
 			for(var e in ents) {
 				var name = ents[e].replace("&", "");
 				if(gen == BOTTOM_ROWS && e == SPINDA_BOX)
