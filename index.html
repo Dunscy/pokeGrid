@@ -173,29 +173,20 @@ canvas {
 .gen-6-box {
 	top: 596px;
 }
-.gen-7-box {
+.fav-type-box {
 	top: 695px;
 }
-.gen-8-box {
-	top: 794px;
-}
-.gen-9-box {
-	top: 893px;
-}
-.fav-type-box {
-	top: 992px;
-}
 .bottom-row1-box {
-	top: 1210px;
+	top: 913px;
 }
 .bottom-row2-box {
-	top: 1409px;
+	top: 1112px;
 }
 .bottom-row1-label {
-	top: 1132px;
+	top: 835px;
 }
 .bottom-row2-label {
-	top: 1331px;
+	top: 1034px;
 }
 .type-1-box {
 	left: 100px;
@@ -264,10 +255,10 @@ canvas {
 	left: 2179px;
 }
 .team-top {
-	top: 1264px;
+	top: 967px;
 }
 .team-bottom {
-	top: 1363px;
+	top: 1066px;
 }
 .team-left {
 	left: 94px;
@@ -1036,7 +1027,7 @@ canvas {
 		var ctx = canvas.getContext("2d");
 		ctx.drawImage(document.getElementById('back'), 0, 0);
 		// draw the pokemon
-		for(var g=0; g<11; g++) {
+		for(var g=0; g<8; g++) { //used to be g<11, but killed three gens
 			for(var t=1; t<=MAX_BOX; t++) {
 				var ele = document.getElementById('box'+g+'_'+t);
 				if(!ele || ele.src == "./blank.png")
@@ -1368,7 +1359,6 @@ canvas {
 <img class="selectionBox bottom-row2-box bottom-box-4" id="box0_19" onclick="openBox(0, 19);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-5" id="box0_20" onclick="openBox(0, 20);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-6" id="box0_21" onclick="openBox(0, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_22" onclick="" src="./Front/SPINDA.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-8" id="box0_23" onclick="openBox(0, 23);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-9" id="box0_24" onclick="openBox(0, 24);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-10" id="box0_35" onclick="openBox(0, 35);" src="./blank.png" height="96" width="96">
@@ -1588,35 +1578,7 @@ canvas {
 <img class="preview" id="preview58" src="./blank.png" height="96" width="96" onclick="pickMon(58);">
 <img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
 </span>
-<img id="spinda" src="/Front/SPINDA.png">
-<img id="spinda2" src="/spinda/Front/SPINDA.png">
-<img id="spinda-cover" src="/spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
-<img id="spot1" class="spinda-spot" src="/spinda/Front/spot1.png">
-<img id="spot2" class="spinda-spot" src="/spinda/Front/spot2.png">
-<img id="spot3" class="spinda-spot" src="/spinda/Front/spot3.png">
-<img id="spot4" class="spinda-spot" src="/spinda/Front/spot4.png">
-<input type="number" id="spot1x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
-<input type="number" id="spot1y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
-<input type="number" id="spot3x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
-<input type="number" id="spot3y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
-<input type="number" id="spot2x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
-<input type="number" id="spot2y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
-<input type="number" id="spot4x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
-<input type="number" id="spot4y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
-<span id="spinda-help">
-	Spinda's spots can be randomized or manually placed.<br>
-	Each box pair in the corners moves its nearest spot.<br>
-	Up/Down on the first box moves it Right/Left.<br>
-	Up/Down on the second box moves it Up/Down.
-</span>
-<input type="button" id="btnRandom" value="Randomize!" onclick="randomSpinda()"/>
-<span id="button-wrapper">
-<a id="downloader" download="download"></a>
-<br><input type="button" id="btnPrint" value="Download Image" onclick="drawFinal()" target="_blank"/>
-<input type="button" id="btnExport" value="Export Choices" onclick="printTextbox()"/>
-<input type="button" id="btnLoad" value="Import Choices" onclick="loadTextbox()"/>
-<input type="button" id="btnReset" value="Reset The Grid!" onclick="resetGrid()"/>
-</span>
+
 <textarea id="import" rows="13" cols="72" spellcheck="false">
 # Don't like my choices? You can overrule them here!
 # Write Code will put a text version of the grid here
@@ -1625,33 +1587,14 @@ canvas {
 # Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
 # You can also use this to keep backups
 </textarea>
+
 <div class="bubble" id="bubble"></div>
 <img class="aura" id="aura0"></img>
 <img class="aura" id="aura1"></img>
 <img class="aura" id="aura2"></img>
-<div class="translate-wrapper bottom-row1-label bottom-box-1-label"><div class="grid-text" id="Bird">Favorite<br>Regional Bird</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-2-label"><div class="grid-text" id="Mammal">Favorite<br>Regional Mammal</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-3-label"><div class="grid-text" id="RegionBug">Favorite<br>Regional Bug</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-4-label"><div class="grid-text" id="PseudoLegend">Favorite<br>Pseudo Legend</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-5-label"><div class="grid-text" id="PikachuClone">Favorite<br>Pikachu Clone</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-6-label"><div class="grid-text" id="Eeveelution">Favorite<br>Eeveelution</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-7-label"><div class="grid-text" id="Fossil">Favorite<br>Fossil</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-8-label"><div class="grid-text" id="RegionalForm">Favorite<br>Regional Form</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-9-label"><div class="grid-text" id="Gigantamax">Favorite<br>Gigantamax</div></div>
-<div class="translate-wrapper bottom-row1-label bottom-box-10-label"><div class="grid-text" id="Baby">Favorite<br>Baby</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-1-label"><div class="grid-text" id="BoxLegendary">Favorite<br>Box Legendary</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-2-label"><div class="grid-text" id="Mythical">Favorite<br>Mythical</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-3-label"><div class="grid-text" id="UltraBeast">Favorite<br>Ultra Beast</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-4-label"><div class="grid-text" id="Paradox">Favorite<br>Paradox</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-5-label"><div class="grid-text" id="Type">Favorite<br>Type</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-6-label"><div class="grid-text" id="Pokeball">Favorite<br>Poké Ball</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-7-label"><div class="grid-text" id="SpindaTitle">Favorite<br>Spinda</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-8-label"><div class="grid-text" id="Vivillon">Favorite<br>Vivillon</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-9-label"><div class="grid-text" id="Alcremie">Favorite<br>Alcremie</div></div>
-<div class="translate-wrapper bottom-row2-label bottom-box-10-label"><div class="grid-text" id="NewEvolution">Favorite<br>New Evo</div></div>
 <div id="teamInstructions" class="translate-wrapper grid-text">Click a team box, then a Pokémon from the grid to copy it to the box.</div>
-<div id="Team" class="translate-wrapper grid-text" style="top:1215px;left:96px;width:296px;height:50px;">Team</div>
-<div id="ShinyCharm1" class="translate-wrapper msg-text" style="top:1100px;left:95px;width:400px;">Click the Shiny Charm, then click Pokemon to make them shiny.</div>
+<div id="Team" class="translate-wrapper grid-text" style="top:918px;left:96px;width:296px;height:50px;">Team</div>
+<div id="ShinyCharm1" class="translate-wrapper msg-text" style="top:803px;left:95px;width:400px;">Click the Shiny Charm, then click Pokemon to make them shiny.</div>
 <div id="ShinyCharm2" class="translate-wrapper msg-text" style="height:fit-content;cursor:pointer;z-index:0;top:1163px;left:95px;width:400px;"  onclick="fullShiny();" >Or click here to make everything shiny.</div>
 </div>
 <div id="credits">
