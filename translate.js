@@ -1073,7 +1073,7 @@ function changeLang(lang) {
 	nextURL.searchParams.delete("lang");
 	if(lang != "English")
 		nextURL.searchParams.set("lang", lang_code[lang]);
-	var nextTitle = "Ultimate Favorite Pokemon Picker";
+	var nextTitle = "Pokaethlon PokeGrid";
 	var nextState = { additionalInformation: 'Updated the language parameter' };
 	//document.getElementById("new_url").innerHTML = nextURL;
 	//document.getElementById("new_url").href = nextURL;

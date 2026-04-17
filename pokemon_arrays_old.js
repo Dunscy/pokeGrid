@@ -4832,7 +4832,7 @@ function updateMode() {
 	nextURL.searchParams.delete("mode");
 	if(MODE.SITE != MODE.STANDARD)
 		nextURL.searchParams.set("mode", MODE.SITE);
-	var nextTitle = "Ultimate Favorite Pokemon Picker";
+	var nextTitle = "Pokaethlon PokeGrid";
 	var nextState = { additionalInformation: 'Updated the mode parameter' };
 	//document.getElementById("new_url").innerHTML = nextURL;
 	//document.getElementById("new_url").href = nextURL;
