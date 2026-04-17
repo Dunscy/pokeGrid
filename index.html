@@ -906,7 +906,7 @@ canvas {
 		var ctx = canvas.getContext("2d");
 		ctx.drawImage(document.getElementById('back'), 0, 0);
 		// draw the pokemon
-		for(var g=0; g<8; g++) { //used to be g<11, but killed three gens
+		for(var g=0; g<11; g++) {
 			for(var t=1; t<=MAX_BOX; t++) {
 				var ele = document.getElementById('box'+g+'_'+t);
 				if(!ele || ele.src == "./blank.png")
