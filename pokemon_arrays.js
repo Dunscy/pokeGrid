@@ -4306,7 +4306,6 @@ var arrays = {
   "SCALARVA",
   "ANTTROOPER",
   "IMITOTION",
-  ""
 ],
 "Pseudo": [
   "DRAGONITE",
@@ -4384,7 +4383,6 @@ var arrays = {
   "PIKACHU_14",
   "PIKACHU_15",
   "PIKACHUDELTA",
-  ""
 ],
 "Eevee": [
   "EEVEE",
