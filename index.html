@@ -755,17 +755,6 @@ canvas {
 				//change the position
 				ele.style.top = top_corner + 99*r;
 				ele.style.left = left_corner + 99*c + hole_offset;
-				if(type_arr) {
-					// manipulate the 1st/2nd/3rd auras
-					var tind = type_arr.indexOf(currently_previewing[pr_ind]);
-					if(tind >= 0) {
-						var aura = document.getElementById("aura"+tind);
-						aura.src = "/aura/" + tind + ".png";
-						aura.style.top = top_corner + 99*r;
-						aura.style.left = left_corner + 99*c + hole_offset;
-						aura.style.zIndex = 8;
-					}
-				}
 				pr_ind++;
 			}
 		}
@@ -790,6 +779,7 @@ canvas {
 		}*/
 		var bubble = document.getElementById('bubble')
 		//bubble.src = bubble_img;
+		bubble.style.display = "block";
 		bubble.style.left = left_corner;
 		bubble.style.top = top_corner;
 		bubble.style.zIndex = 8;
@@ -802,10 +792,7 @@ canvas {
 			ele.src = "./blank.png";
 			ele.style.zIndex = 0;
 		}
-		document.getElementById('bubble').style.zIndex = 0;
-		document.getElementById('aura0').style.zIndex = 0;
-		document.getElementById('aura1').style.zIndex = 0;
-		document.getElementById('aura2').style.zIndex = 0;
+		document.getElementById('bubble').style.display = "none";
 		if(teamSelect) {
 			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
 			teamSelect = false;
