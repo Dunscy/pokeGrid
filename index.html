@@ -49,7 +49,7 @@ canvas {
   left: 0px;
 }
 #button-wrapper {
-  top: 1572px;
+  top: 1255px;
   left: 0px;
   height: 50px;
   position: absolute;
@@ -357,103 +357,6 @@ canvas {
 }
 
 </style>
-<style id="spinda">
-#spinda-help {
-  color: #000000;
-  position: absolute;
-  top: 1577px;
-  left: 1511px;
-  display: block;
-  width: 500px;
-  z-index: 2;
-}
-#spinda {
-  z-index: 2;
-  position: absolute;
-  top: 1409px;
-  left: 1612px;
-}
-.spinda-spot {
-  z-index: 3;
-  position: absolute;
-  top: 1409px;
-  left: 1612px;
-}
-#spinda2 {
-  z-index: 4;
-  position: absolute;
-  top: 1409px;
-  left: 1612px;
-}
-#spinda-cover {
-  z-index: 5;
-  position: absolute;
-  top: 1409px;
-  left: 1612px;
-}
-#spot1x {
-  z-index: 4;
-  position: absolute;
-  top: 1409px;
-  left: 1562px;
-  width: 48px;
-}
-#spot1y {
-  z-index: 4;
-  position: absolute;
-  top: 1431px;
-  left: 1562px;
-  width: 48px;
-}
-#spot2x {
-  z-index: 4;
-  position: absolute;
-  top: 1409px;
-  left: 1708px;
-  width: 48px;
-}
-#spot2y {
-  z-index: 4;
-  position: absolute;
-  top: 1431px;
-  left: 1708px;
-  width: 48px;
-}
-#spot3x {
-  z-index: 4;
-  position: absolute;
-  top: 1461px;
-  left: 1562px;
-  width: 48px;
-}
-#spot3y {
-  z-index: 4;
-  position: absolute;
-  top: 1483px;
-  left: 1562px;
-  width: 48px;
-}
-#spot4x {
-  z-index: 4;
-  position: absolute;
-  top: 1461px;
-  left: 1708px;
-  width: 48px;
-}
-#spot4y {
-  z-index: 4;
-  position: absolute;
-  top: 1483px;
-  left: 1708px;
-  width: 48px;
-}
-#btnRandom {
-  z-index: 4;
-  position: absolute;
-  top: 1505px;
-  left: 1622px;
-}
-</style>
 <!--
 	Tried to make the axis sticky with jQuery
 	but doesn't stick properly on mobile
@@ -495,7 +398,6 @@ canvas {
 	var ALCREMIE_MAX = 33;
 	var GENERATION_FAV = 22;
 	var TYPE_FAV = 10;
-	var SPINDA_BOX = 22;
 	var MAX_BOX = 35;
 
 	var choices = [];
@@ -519,7 +421,7 @@ canvas {
 	var cookie_names = [
 		"gen0", "gen1", "gen2", "gen3", "gen4",
 		"gen5", "gen6", "gen7", "gen8", "gen9",
-		"favs", "spinda"
+		"favs"
 	]
 	var swap = {"Front": "Shiny", "Shiny": "Front"};
 
@@ -533,7 +435,6 @@ canvas {
 				choices[i].push("")
 			}
 		}
-		choices[0][22] = "SPINDA"
 	}
 	resetChoices();
 	function activateShiny() {
@@ -564,7 +465,7 @@ canvas {
 			}
 			writeCookie(g);
 		}
-		shinySpinda(true);
+
 		spriteFile = swap[spriteFile];
 		activateShiny();
 	}
@@ -576,25 +477,6 @@ canvas {
 			ele.src = ele.src.replace(/Shiny/, "Front");
 		}
 		writeCookie(gen);
-	}
-	function shinySpinda(force) {
-		if(shinyCharm || force) {
-			toggleShiny(0, 22);
-			var ele = document.getElementById('spinda2');
-			if(ele.src.match(/Front/)) {
-				ele.src = ele.src.replace(/Front/, "Shiny");
-			}else{
-				ele.src = ele.src.replace(/Shiny/, "Front");
-			}
-			for(var i=1; i<5; i++) {
-				ele = document.getElementById('spot'+i);
-				if(ele.src.match(/Front/)) {
-					ele.src = ele.src.replace(/Front/, "Shiny");
-				}else{
-					ele.src = ele.src.replace(/Shiny/, "Front");
-				}
-			}
-		}
 	}
 	
 	function bubbleRows(count) {
@@ -986,11 +868,6 @@ canvas {
 			}
 			output += "\n";
 		}
-		output += "spindaspots,";
-		for(var s in spot_map) {
-			var ax_ele = document.getElementById(s);
-			output += ax_ele.value + ",";
-		}
 		document.getElementById('import').value = output;
 	}
 	function loadTextbox(importbox) {
@@ -1009,11 +886,8 @@ canvas {
 				setCookie(getCookieName(gen), lines[l]);
 			}
 			var ents = lines[l].split(",");
-			var spinda_spots = false;
 			for(var e in ents) {
 				var name = ents[e].replace("&", "");
-				if(gen == BOTTOM_ROWS && e == SPINDA_BOX)
-					name = "SPINDA";
 				ele = document.getElementById('box'+gen+'_'+e);
 				if(!ele)
 					continue;
@@ -1051,14 +925,6 @@ canvas {
 				if(!ele || ele.src == "./blank.png")
 					continue;
 				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop, 96, 96);
-				if(g == BOTTOM_ROWS && t == SPINDA_BOX) {
-					// render spinda
-					var spots = ["spot1", "spot2", "spot3", "spot4", "spinda2", "spinda-cover"];
-					for(var s in spots) {
-						ele = document.getElementById(spots[s]);
-						ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
-					}
-				}
 			}
 		}
 		// draw the category names
@@ -1166,47 +1032,9 @@ canvas {
 		dbutton.innerHTML = getTranslString("downloader");
 		dbutton.click()
 	}
-	function spindaSpot(ele, axis) {
-		var spot_ele = document.getElementById(spot_map[ele.id])
-		if(axis == "x") {
-			var base_left = 1604;
-			spot_ele.style.left = base_left + parseInt(ele.value);
-		}else{
-			var base_top = 1417;
-			spot_ele.style.top = base_top - parseInt(ele.value);
-		}
-		writeSpindaCookie();
-	}
 
 	function rand(scale) {
 		return Math.floor(Math.random()*scale)
-	}
-	function randomSpinda(ar) {
-		var spots = ["spot1", "spot2", "spot3", "spot4"];
-		if(!ar) {
-			ar = ["spindaspots"];
-			for(var s in spots) {
-				ar.push(rand(17));
-				ar.push(rand(17));
-			}
-		}
-		var base_left = 1604;
-		var base_top = 1417;
-		for(var i=0; i<spots.length; i++) {
-			var sname = spots[i];
-			var spot_ele = document.getElementById(sname);
-			var new_x = ar[2*i+1];
-			var new_y = ar[2*i+2];
-			spot_ele.style.left = base_left + parseInt(new_x);
-			spot_ele.style.top = base_top - parseInt(new_y);
-			document.getElementById(sname + "x").value = new_x;
-			document.getElementById(sname + "y").value = new_y;
-		}
-		if(!choices[BOTTOM_ROWS][SPINDA_BOX] == "SPINDA") {
-			choices[BOTTOM_ROWS][SPINDA_BOX] = "SPINDA";
-			writeCookie(BOTTOM_ROWS);
-		}
-		writeSpindaCookie()
 	}
 
 	function calcTypes() {
@@ -1294,19 +1122,6 @@ canvas {
 		}
 		setCookie(getCookieName(g), cookie_text);
 	}
-	function writeSpindaCookie() {
-		var spots = ["spot1", "spot2", "spot3", "spot4"];
-		var cookie_text = "spindaspots,";
-		for(var i=0; i<spots.length; i++) {
-			var sname = spots[i];
-			var spot_ele = document.getElementById(sname);
-			cookie_text += document.getElementById(sname + "x").value;
-			cookie_text += ",";
-			cookie_text += document.getElementById(sname + "y").value;
-			cookie_text += ",";
-		}
-		setCookie("spinda", cookie_text);
-	}
 	function loadCookies() {
 		var searchParams = new URL(location).searchParams;
 		var langCode = searchParams.get("lang");
@@ -1346,7 +1161,7 @@ canvas {
 			return "gen"+g;
 		if(g == TYPE_FAV)
 			return "favs";
-		return "spinda";
+		return "favs";
 	}
 </script>
 </head>
@@ -1598,6 +1413,13 @@ canvas {
 <img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
 </span>
 
+<span id="button-wrapper">
+<a id="downloader" download="download"></a>
+<br><input type="button" id="btnPrint" value="Download Image" onclick="drawFinal()" target="_blank"/>
+<input type="button" id="btnExport" value="Export Choices" onclick="printTextbox()"/>
+<input type="button" id="btnLoad" value="Import Choices" onclick="loadTextbox()"/>
+<input type="button" id="btnReset" value="Reset The Grid!" onclick="resetGrid()"/>
+</span>
 <textarea id="import" rows="13" cols="72" spellcheck="false">
 # Don't like my choices? You can overrule them here!
 # Write Code will put a text version of the grid here
@@ -1612,7 +1434,7 @@ canvas {
 <img class="aura" id="aura1"></img>
 <img class="aura" id="aura2"></img>
 <div id="teamInstructions" class="translate-wrapper grid-text">Click a team box, then a Pokémon from the grid to copy it to the box.</div>
-<div id="Team" class="translate-wrapper grid-text" style="top:918px;left:96px;width:296px;height:50px;">Team</div>
+<div id="Team" class="translate-wrapper grid-text" style="top:918px;left:96px;width:296px;height:50px;"></div>
 <div id="ShinyCharm1" class="translate-wrapper msg-text" style="top:803px;left:95px;width:400px;">Click the Shiny Charm, then click Pokemon to make them shiny.</div>
 <div id="ShinyCharm2" class="translate-wrapper msg-text" style="height:fit-content;cursor:pointer;z-index:0;top:1163px;left:95px;width:400px;"  onclick="fullShiny();" >Or click here to make everything shiny.</div>
 </div>

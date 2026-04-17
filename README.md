@@ -12,11 +12,6 @@ Clicking on the Shiny Charm will put you in Shiny Mode until you click it again.
 ### The Team Grid
 In the bottom left there's a section for selecting your team of six. To do this, click one of the boxes, which will then display "Picking...", then click any of the Pokemon in the grid boxes* and it will be copied over to that box. If you change the copied box, the team box won't change with it, which you can use to put unranked Pokemon in the team.
 
-\* Except the Favorite Spinda box, working on that one!
-
-### Build-a-Spinda Workshop
-You can now create your own custom Spinda! At the four corners of the box are number inputs where you can put a number from 0-16 to move Spinda's 4 spots left/right or up/down. Or you can randomize your Spinda until they turn dizzy.
-
 ### And Alcremie too!
 There's now a spot for Alcremie forms, first picking the base form and then opening a second box for toppings.
 
