@@ -4876,11 +4876,8 @@ var arrays = {
     "KINGBOBOMB"
   ],
   [
-    "THATCHLING",
-    "VOLIABLE",
-    "NESTITAN",
-    "POTERMIT",
-    "CERAGUARD",
+    "REGASUNDE",
+    "GELAZURA",
     "IGNIMASK",
     "SCAVEMBER",
     "CAUSTICOON"
